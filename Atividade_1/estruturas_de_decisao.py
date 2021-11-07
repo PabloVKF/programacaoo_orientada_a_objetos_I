@@ -65,7 +65,7 @@ def media_3():
     numerador: float = (nota_1 * weight_nota_1) + (nota_2 * weight_nota_2) + (nota_3 * weight_nota_3) + (nota_4 * weight_nota_4)
     denominador: int = weight_nota_1 + weight_nota_2 + weight_nota_3 + weight_nota_4
     average: float = numerador / denominador
-    print(f"Media: {average:.1f}\n")
+    print(f"Media: {average:.1f}")
 
     min_to_aprovate: float = 7.0
     min_to_exam: float = 5.0
@@ -89,7 +89,99 @@ def media_3():
         print(f"Media final: {new_average:.1f}")
 
 
+def triangulo():
+    entry = str(input()).split()
+    A = float(entry[0])
+    B = float(entry[1])
+    C = float(entry[2])
+
+    condition_1 = abs(B - C) < A < (B + C)
+    condition_2 = abs(A - C) < B < (A + C)
+    condition_3 = abs(A - B) < C < (A + B)
+
+    if condition_1 and condition_2 and condition_3:
+        perimetro = A + B + C
+        print(f"Perimetro = {perimetro:.1f}")
+    else:
+        area = ((A + B) / 2) * C
+        print(f"Area = {area:.1f}")
+
+
+def multiplos():
+    numbers = input().split()
+    number_1 = int(numbers[0])
+    number_2 = int(numbers[1])
+
+    if (number_2 % number_1 == 0) or (number_1 % number_2 == 0):
+        print("Sao Multiplos")
+    else:
+        print("Nao sao Multiplos")
+
+
+def animal():
+    entry_1 = input()
+    entry_2 = input()
+    entry_3 = input()
+
+    animals = {
+        'vertebrado': {
+            'ave': {
+                'carnivoro': 'aguia',
+                'onivoro': 'pomba'
+            },
+            'mamifero': {
+                'onivoro': 'homem',
+                'herbivoro': 'vaca'
+            }
+        },
+        'invertebrado': {
+            'inseto': {
+                'hematofago': 'pulga',
+                'herbivoro': 'lagarta'
+            },
+            'anelideo': {
+                'hematofago': 'sanguessuga',
+                'onivoro': 'minhoca'
+            }
+        }
+    }
+
+    result = animals[entry_1][entry_2][entry_3]
+    print(result)
+
+
+def qual_triangulo():
+    # Considderando A e B como catetos e C como hipotenusa
+
+    entry = str(input()).split()
+    entry = [int(x) for x in entry]
+    entry.sort()
+    A, B, C = entry
+
+    condition = abs(A - B) < C < (A + B)
+
+    if condition:
+        if A == B and B == C:
+            triangle_type = "Valido-Equilatero"
+        elif A == B or B == C:
+            triangle_type = "Valido-Isoceles"
+        else:
+            triangle_type = "Valido-Escaleno"
+        print(triangle_type)
+
+        pitagoras_theorem = (A ** 2) + (B ** 2) == (C ** 2)
+        if pitagoras_theorem:
+            triangle_shape = "S"
+        else:
+            triangle_shape = "N"
+        print(f"Retangulo: {triangle_shape}")
+    else:
+        print("Invalido")
+
+
+def avioes_de_papel():
+    pass
 
 
 if __name__ == "__main__":
-    media_3()
+    avioes_de_papel()
