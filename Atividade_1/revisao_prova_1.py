@@ -190,17 +190,55 @@ def chocolate():
     width_square: int = int(input())
     pieces: int = 1
 
-    while True:
-        if width_square >= 2:
-            pieces *= 4
-            width_square /= 2
-        else:
-            break
+    while width_square >= 2:
+        pieces *= 4
+        width_square /= 2
 
     print(pieces)
 
 
+def saldo_do_vovo():
+    entry = input().split()
+    number_of_days: int = int(entry[0])
+    money_on_account: int = int(entry[1])
+    lowest_retained_value: int = money_on_account
+
+    for day in range(number_of_days):
+        money_moviment: int = int(input())
+        money_on_account += money_moviment
+        if money_on_account < lowest_retained_value:
+            lowest_retained_value = money_on_account
+
+    print(lowest_retained_value)
+
+
+def relogio_antigo():
+    while True:
+        try:
+            entry = input().split()
+            hours: int = (int(entry[0]) % 360) // 30
+            minutes: int = (int(entry[1]) % 360) // 6
+
+            print(f"{hours:02d}:{minutes:02d}")
+        except EOFError:
+            break
+
+
+def kikoho():
+    number_of_tests: int = int(input())
+
+    for test in range(number_of_tests):
+        entry = input().split()
+        x1 = int(entry[0])
+        y1 = int(entry[1])
+        x2 = int(entry[2])
+        y2 = int(entry[3])
+        x3 = int(entry[4])
+        y3 = int(entry[5])
+
+        area: float = abs((((x1*y2)+(y1*x3)+(x2*y3))-((y2*x3)+(x1*y3)+(y1*x2))) / 2)
+        print(f"{area:.3f}")
 
 
 if __name__ == "__main__":
-    chocolate()
+    macaco_prego()
