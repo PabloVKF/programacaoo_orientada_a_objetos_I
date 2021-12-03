@@ -38,24 +38,41 @@ def macaco_prego():
         if number_of_regions == 0:
             break
         else:
-            x1, y1, u1, v1 = [-10000, 10000, 10000, -10000]
+            x1, y1, u1, v1 = [0, 0, 0, 0]
             has_intersection = True
-            for region in range(number_of_regions):
-                x2, y2, u2, v2 = map(int, input().split())
+            for region in range(number_of_regions):     
+                entry = input().split()
+                x2 = int(entry[0])
+                y2 = int(entry[1])
+                u2 = int(entry[2])
+                v2 = int(entry[3])
 
-                letf_corner_is_in_the_region: bool = x1 <= x2 <= u1 and v1 <= y2 <= y1
+                if region == 0:
+                    x1, y1, u1, v1 = x2, y2, u2, v2
+
+                new_x1 = x1
+                new_y1 = y1
+                new_u1 = u1
+                new_v1 = v1
+
+                letf_corner_is_in_the_region: bool = (x1 <= x2 <= u1) and (v1 <= v2 <= y1)
+                right_corner_is_in_the_region: bool = (x1 <= u2 <= u1) and (v1 <= y2 <= y1)
+
                 if letf_corner_is_in_the_region:
-                    x1 = x2
-                    y1 = y2
+                    new_x1 = x2
+                    new_y1 = y2
 
-                right_corner_is_in_the_region: bool = x1 <= u2 <= u1 and v1 <= v2 <= y1
                 if right_corner_is_in_the_region:
-                    u1 = u2
-                    v1 = v2
+                    new_u1 = u2
+                    new_v1 = v2
 
                 if (not letf_corner_is_in_the_region) and (not right_corner_is_in_the_region):
                     has_intersection = False
-                    break
+                else:
+                    x1 = new_x1
+                    y1 = new_y1
+                    u1 = new_u1
+                    v1 = new_v1
 
             if has_intersection:
                 print(f"Teste {counter_of_tests}\n"
