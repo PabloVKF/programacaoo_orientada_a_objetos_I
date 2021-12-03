@@ -1,6 +1,7 @@
 # My ignores
 .idea
 rascunho.py
+rascunho_entry
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
