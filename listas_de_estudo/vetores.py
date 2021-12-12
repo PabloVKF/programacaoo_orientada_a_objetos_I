@@ -290,17 +290,6 @@ def pulo_do_sapo():
     for frog in range(number_of_frogs):
         inicial_place, jump_width = map(int, input().split())
         first_stone: int = inicial_place % jump_width
-        current_stone = first_stone
-
-        while True:
-            if not current_stone:
-                continue
-
-            try:
-                occupation_stones[current_stone - 1] = 1
-                current_stone += jump_width
-            except IndexError:
-                break
 
         for number in range(len(occupation_stones) + 1):
             stone_location: int = first_stone + (number * jump_width)
@@ -340,4 +329,4 @@ def campo_minado():
 
 
 if __name__ == "__main__":
-    campo_minado()
+    pulo_do_sapo()
