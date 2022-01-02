@@ -1,5 +1,7 @@
 from tkinter import messagebox
 
+import ttkbootstrap as ttk
+
 from application import Appplication
 
 
@@ -9,6 +11,11 @@ def on_closing():
 
 
 if __name__ == "__main__":
-    app = Appplication()
+    app = ttk.Window(
+        title="ERP tunado",
+        themename="litera",
+        resizable=(False, False)
+    )
+    Appplication(app)
     app.protocol("WM_DELETE_WINDOW", on_closing)
     app.mainloop()
