@@ -1,0 +1,4 @@
+"""
+IDEIA DE SOLUÇÃO:
+"""
+

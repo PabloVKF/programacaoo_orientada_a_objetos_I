@@ -76,6 +76,27 @@ def abaixo_da_diagonal_secundaria():
         print(average)
 
 
+def area_acima():
+    operation: str = input()
+    entries_sum: float = 0.0
+
+    houses: int = 0
+    for n_row in range(12):
+        for n_column in range(12):
+            float_entry: float = float(input())
+            first_limit: int = n_row
+            second_limit: int = 11 - n_row
+            if (n_column > first_limit) and (n_column < second_limit):
+                houses += 1
+                entries_sum += float_entry
+
+    if operation == 'S':
+        print(round(entries_sum, 1))
+    elif operation == 'M':
+        average = round(entries_sum / houses, 1)
+        print(average)
+
+
 def matriz_quadrada_1():
     while True:
         matriz_number: int = int(input())
